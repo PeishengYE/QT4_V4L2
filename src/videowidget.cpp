@@ -12,7 +12,7 @@ void videowidget::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
     painter.setPen(Qt::blue);
     painter.setFont(QFont("Arial", 40));
-    painter.drawText(rect(), Qt::AlignBottom|Qt::AlignCenter, "Peisheng YE Testing");
+    painter.drawText(rect(), Qt::AlignBottom|Qt::AlignCenter, "USB camera Testing by Peisheng");
 
 
         if(!img.isNull()){
