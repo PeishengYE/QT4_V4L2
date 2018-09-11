@@ -3,9 +3,9 @@
 MainWindow::MainWindow(QWidget *parent)
 {
 
-    exitButton=new QPushButton("退出",this);
-    startCapture=new QPushButton("监控",this);
-    stopCapture=new QPushButton("停止",this);
+    exitButton=new QPushButton("EXIT",this);
+    startCapture=new QPushButton("Monitor",this);
+    stopCapture=new QPushButton("Stop",this);
 
     connect(exitButton, SIGNAL(clicked()), this, SLOT(on_exit_clicked()));
     connect(startCapture, SIGNAL(clicked()), this, SLOT(onStartCapture()));
