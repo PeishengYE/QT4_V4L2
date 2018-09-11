@@ -11,5 +11,8 @@ int main(int argc, char *argv[])
     MainWindow w;
     //w.showFullScreen();
     w.show();
+	w.setWindowTitle("Peisheng YE TESING");
+
+	
     return a.exec();
 }

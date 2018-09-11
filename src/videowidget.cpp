@@ -12,7 +12,7 @@ void videowidget::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
     painter.setPen(Qt::blue);
     painter.setFont(QFont("Arial", 30));
-    painter.drawText(rect(), Qt::AlignCenter, "Deepin");
+    painter.drawText(rect(), Qt::AlignBottom, "Peisheng YE Testing");
 
 
         if(!img.isNull()){
