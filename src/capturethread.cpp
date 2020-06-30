@@ -41,15 +41,16 @@ dev_name = "/dev/video0";
     //fmt.fmt.pix.width       = 640;
     //fmt.fmt.pix.height      = 480;
     // error 
-    //fmt.fmt.pix.width       = 320;
-    //fmt.fmt.pix.height      = 240;
+    fmt.fmt.pix.width       = 320;
+    fmt.fmt.pix.height      = 240;
     // not complete image 
     //fmt.fmt.pix.width       = 1280;
     //fmt.fmt.pix.height      = 720;
     // mixed,   image 
     //fmt.fmt.pix.width       = 1024;
     //fmt.fmt.pix.height      = 768;
-    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
+    //fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YVU420;
     fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
     xioctl(fd, VIDIOC_S_FMT, &fmt);
     if (fmt.fmt.pix.pixelformat != V4L2_PIX_FMT_RGB24) {
