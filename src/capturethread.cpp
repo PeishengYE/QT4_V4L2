@@ -53,18 +53,21 @@ dev_name = "/dev/video0";
     fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YVU420;
     fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
     xioctl(fd, VIDIOC_S_FMT, &fmt);
-    if (fmt.fmt.pix.pixelformat != V4L2_PIX_FMT_RGB24) {
-           printf("Libv4l didn't accept RGB24 format. Can't proceed.\n");
-           //exit(EXIT_FAILURE);
-           return;
+    if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_RGB24) {
+           printf("Libv4l:  accept  V4L2_PIX_FMT_RGB24 format.\n");
     }
-    if ((fmt.fmt.pix.width != 640) || (fmt.fmt.pix.height != 480))
-           printf("Warning: driver is sending image at %dx%d\n",
+
+    if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_YVU420) {
+           printf("Libv4l:  accept  V4L2_PIX_FMT_YVU420 format.\n");
+    }
+
+    printf("The kernel driver is sending image at %dx%d\n",
                    fmt.fmt.pix.width, fmt.fmt.pix.height);
 
     v4lconvert_data = v4lconvert_create(fd);
     if (v4lconvert_data == NULL)
         qDebug() << "v4lconvert_create";
+
     if (v4lconvert_try_format(v4lconvert_data, &fmt, &src_fmt) != 0)
         qDebug() <<"v4lconvert_try_format";
     xioctl(fd, VIDIOC_S_FMT, &src_fmt);
@@ -110,7 +113,8 @@ dev_name = "/dev/video0";
     xioctl(fd, VIDIOC_STREAMON, &type);
 
     int di=0;
-    char header[]="P6\n640 480 255\n";
+    //char header[]="P6\n640 480 255\n";
+    char header[]="P6\n320 240 255\n";
     while(devam){
         /* bu döngü datanın birikmesini sağlıyor */
         do {
