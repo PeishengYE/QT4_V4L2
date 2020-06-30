@@ -3,10 +3,13 @@
 Makefile
 /debug
 /release
+/bin
+/log
 *.slo
 *.lo
 *.o
 *.swp
+moc*cpp
 
 # Compiled Dynamic libraries
 *.so
