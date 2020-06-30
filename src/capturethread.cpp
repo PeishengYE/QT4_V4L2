@@ -49,8 +49,8 @@ dev_name = "/dev/video0";
     // mixed,   image 
     //fmt.fmt.pix.width       = 1024;
     //fmt.fmt.pix.height      = 768;
-    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
-    //fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YVU420;
+    //fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_RGB24;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YVU420;
     fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
     xioctl(fd, VIDIOC_S_FMT, &fmt);
     if (fmt.fmt.pix.pixelformat == V4L2_PIX_FMT_RGB24) {
