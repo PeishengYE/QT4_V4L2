@@ -80,6 +80,7 @@ dev_name = "/dev/video0";
     req.memory = V4L2_MEMORY_MMAP;
     xioctl(fd, VIDIOC_REQBUFS, &req);
 
+    printf("requiring buffer\n");
     buffers = (buffer*)calloc(req.count, sizeof(*buffers));
     for (n_buffers = 0; n_buffers < req.count; ++n_buffers) {
            CLEAR(buf);
@@ -113,6 +114,7 @@ dev_name = "/dev/video0";
 
     xioctl(fd, VIDIOC_STREAMON, &type);
 
+    printf("streaming on...\n");
     int di=0;
     //char header[]="P6\n640 480 255\n";
     char header[]="P6\n320 240 255\n";
@@ -174,6 +176,7 @@ dev_name = "/dev/video0";
         xioctl(fd, VIDIOC_QBUF, &buf);
         di++;
    }
+    printf("done for looping...\n");
     try{
     type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     xioctl(fd, VIDIOC_STREAMOFF, &type);
