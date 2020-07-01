@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     resize(1024,768);
 
     t=new CaptureThread(video);
+	/* start automatically */
     onStartCapture();
 
 }
